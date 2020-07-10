@@ -1,6 +1,7 @@
 #include <msp430.h>
 #include "libTimer.h"
 #include "buzzer.h"
+#include "switches.h"
 
 void buzzer_init()
 {
@@ -16,6 +17,8 @@ void buzzer_init()
     P2SEL &= ~BIT7; 
     P2SEL |= BIT6;
     P2DIR = BIT6;		/* enable output to speaker (P2.6) */
+    buzzer_update();
+
 }
 
 void buzzer_set_period(short cycles) /* buzzer clock = 2MHz.  (period of 1k results in 2kHz tone) */
@@ -26,9 +29,13 @@ void buzzer_set_period(short cycles) /* buzzer clock = 2MHz.  (period of 1k resu
 
 void buzzer_update()
 {
-  if (switch_state_changed)
+  if (switch_state_down)
     {
       buzzer_set_period(1000);
+    }
+  else
+    {
+      buzzer_set_period(4545);
     }
   switch_state_changed = 0;
 }
