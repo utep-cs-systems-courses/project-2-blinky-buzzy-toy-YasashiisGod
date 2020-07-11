@@ -29,13 +29,21 @@ void buzzer_set_period(short cycles) /* buzzer clock = 2MHz.  (period of 1k resu
 
 void buzzer_update()
 {
-  if (switch_state_down)
+  if (switch1_state_down)
     {
       buzzer_set_period(1000);
     }
-  else
+  else if (switch2_state_down)
     {
       buzzer_set_period(4545);
+    }
+  else if (switch3_state_down)
+    {
+      buzzer_set_period(8000);
+    }
+  else
+    {
+      buzzer_set_period(0);
     }
   switch_state_changed = 0;
 }
