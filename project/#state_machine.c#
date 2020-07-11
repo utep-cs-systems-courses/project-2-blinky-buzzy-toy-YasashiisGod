@@ -1,0 +1,14 @@
+#include <msp430.h>
+#include "state_machine.h"
+#include "led.h"
+#include "buzzer.h"
+#include "switches.h"
+
+char off = 0, dim = 1, bright = 2;
+
+void start()
+{
+  char green_on, red_on;
+  
+  if 
+}
