@@ -10,3 +10,8 @@ __interrupt_vec(PORT2_VECTOR) Port_2(){
   }
 }
 
+
+void _interrupt_vec(WDT_VECTOR)WDT(){
+  start();
+  led_update();
+}
