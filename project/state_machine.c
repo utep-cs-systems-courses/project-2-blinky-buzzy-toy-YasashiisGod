@@ -3,8 +3,8 @@
 #include "buzzer.h"
 #include "switches.h"
 #include <msp430.h>
-
-// variables for the state
+ 
+//  variables for the state
 static enum {off = 0, dim =1, bright = 2} led_state;
 static char pwmCount = 0;
 
