@@ -17,7 +17,7 @@ void buzzer_init()
     P2SEL &= ~BIT7; 
     P2SEL |= BIT6;
     P2DIR = BIT6;		/* enable output to speaker (P2.6) */
-    buzzer_update();
+    //buzzer_update();
 
 }
 
@@ -26,7 +26,7 @@ void buzzer_set_period(short cycles) /* buzzer clock = 2MHz.  (period of 1k resu
   CCR0 = cycles; 
   CCR1 = cycles >> 1;		/* one half cycle */
 }
-
+/*
 void buzzer_update()
 {
   if (switch1_state_down)
@@ -47,7 +47,7 @@ void buzzer_update()
     }
   switch_state_changed = 0;
 }
-
+*/
     
     
   
